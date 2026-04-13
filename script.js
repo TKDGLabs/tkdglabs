@@ -91,3 +91,34 @@ const sectionObserver = new IntersectionObserver(
 );
 
 pageSections.forEach((section) => sectionObserver.observe(section));
+
+const teamCards = document.querySelector(".team-cards");
+const memberCards = Array.from(document.querySelectorAll("[data-member-card]"));
+
+if (teamCards && memberCards.length > 0) {
+  const syncMemberCardsState = () => {
+    const activeCard = memberCards.find((card) => card.classList.contains("is-active"));
+    teamCards.classList.toggle("has-active", Boolean(activeCard));
+    memberCards.forEach((card) => {
+      const trigger = card.querySelector(".member-card__trigger");
+      if (trigger) {
+        trigger.setAttribute("aria-expanded", String(card.classList.contains("is-active")));
+      }
+    });
+  };
+
+  const setActiveMemberCard = (targetCard) => {
+    const alreadyActive = targetCard.classList.contains("is-active");
+    memberCards.forEach((card) => card.classList.remove("is-active"));
+    if (!alreadyActive) targetCard.classList.add("is-active");
+    syncMemberCardsState();
+  };
+
+  memberCards.forEach((card) => {
+    const trigger = card.querySelector(".member-card__trigger");
+    if (!trigger) return;
+    trigger.addEventListener("click", () => setActiveMemberCard(card));
+  });
+
+  syncMemberCardsState();
+}
