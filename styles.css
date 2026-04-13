@@ -416,10 +416,14 @@ a {
   gap: 0;
 }
 
+.units .section-head {
+  margin-bottom: 22px;
+}
+
 .unit {
   display: grid;
-  grid-template-columns: 58px minmax(340px, 470px) minmax(250px, 1fr) auto;
-  gap: 18px;
+  grid-template-columns: 58px minmax(360px, 500px) minmax(260px, 1fr) minmax(160px, auto);
+  gap: 18px 20px;
   align-items: center;
   padding: 26px 0;
   border-bottom: 1px solid var(--line);
@@ -441,9 +445,14 @@ a {
 }
 
 .unit-brand {
-  display: flex;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
   align-items: center;
-  gap: 20px;
+  gap: 16px;
+  min-width: 0;
+}
+
+.unit-main {
   min-width: 0;
 }
 
@@ -463,22 +472,24 @@ a {
 .unit-logo {
   display: block;
   flex: 0 0 auto;
+  width: 100%;
   height: auto;
   object-fit: contain;
   object-position: left center;
-  max-width: 150px;
+  max-width: 138px;
+  max-height: 56px;
 }
 
 .unit-logo--tkdg {
-  width: 122px;
+  max-width: 118px;
 }
 
 .unit-logo--turnkey {
-  width: 140px;
+  max-width: 132px;
 }
 
 .unit-logo--picsta {
-  width: 138px;
+  max-width: 130px;
 }
 
 .unit-desc {
@@ -495,6 +506,8 @@ a {
   flex-wrap: wrap;
   gap: 11px;
   justify-self: end;
+  min-width: 170px;
+  justify-content: flex-end;
 }
 
 .brand-status {
@@ -507,6 +520,7 @@ a {
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: #636868;
+  min-width: 76px;
 }
 
 .brand-status::before {
@@ -560,8 +574,10 @@ a {
 }
 
 .brand-link.is-disabled {
-  border-color: rgba(10, 14, 14, 0.16);
+  border-color: transparent;
+  border-bottom: 0;
   color: #636868;
+  font-weight: 600;
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -1689,6 +1705,8 @@ a {
   .unit-action {
     grid-area: action;
     justify-self: start;
+    min-width: 0;
+    justify-content: flex-start;
   }
 
   .team-cards {
@@ -1837,15 +1855,16 @@ a {
   }
 
   .unit-brand {
+    grid-template-columns: 130px minmax(0, 1fr);
     gap: 14px;
   }
 
   .unit-logo {
-    width: 132px;
+    max-width: 132px;
   }
 
   .unit-logo--tkdg {
-    width: 106px;
+    max-width: 106px;
   }
 
   .unit-action {
