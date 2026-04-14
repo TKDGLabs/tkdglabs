@@ -206,6 +206,7 @@
         <a href="#ir">IR 포인트</a>
         <a href="#team">구성원</a>
         <a href="#careers">채용</a>
+        <a href="#proposal">제안 요청</a>
         <a href="#faq">FAQ</a>
         <a class="site-nav__cta" href="#contact">문의</a>
       </nav>
@@ -788,6 +789,120 @@
             </dd>
           </div>
         </dl>
+      </section>
+
+      <section class="section proposal" id="proposal">
+        <div class="section-head reveal">
+          <p class="section-eyebrow">Request Proposal</p>
+          <h2>제안 요청하기</h2>
+        </div>
+
+        <p class="proposal-intro reveal">
+          의뢰 성격과 필요한 지원 범위를 선택해주시면, 검토 후 빠른 시일 내에 연락드리겠습니다.
+        </p>
+
+        <form class="proposal-form reveal" id="proposalForm" novalidate>
+          <div class="proposal-grid">
+            <label class="proposal-field">
+              <span>의뢰 주체</span>
+              <select name="clientType" required>
+                <option value="">선택해주세요</option>
+                <option value="병원·클리닉">병원·클리닉</option>
+                <option value="로펌·법률사무소">로펌·법률사무소</option>
+                <option value="일반 기업(B2B/B2C)">일반 기업(B2B/B2C)</option>
+                <option value="공공기관·협회">공공기관·협회</option>
+                <option value="요식업·F&B">요식업·F&B</option>
+                <option value="서비스업·교육">서비스업·교육</option>
+                <option value="프랜차이즈">프랜차이즈</option>
+                <option value="기타">기타</option>
+              </select>
+            </label>
+
+            <label class="proposal-field">
+              <span>예산 범위</span>
+              <select name="budget" required>
+                <option value="">선택해주세요</option>
+                <option value="1천만원 미만">1천만원 미만</option>
+                <option value="1천만원~3천만원">1천만원~3천만원</option>
+                <option value="3천만원~7천만원">3천만원~7천만원</option>
+                <option value="7천만원~1억5천만원">7천만원~1억5천만원</option>
+                <option value="1억5천만원 이상">1억5천만원 이상</option>
+                <option value="협의 필요">협의 필요</option>
+              </select>
+            </label>
+
+            <label class="proposal-field">
+              <span>희망 기간</span>
+              <select name="timeline" required>
+                <option value="">선택해주세요</option>
+                <option value="1개월 이내 착수">1개월 이내 착수</option>
+                <option value="1~2개월 내 착수">1~2개월 내 착수</option>
+                <option value="3~6개월 내 착수">3~6개월 내 착수</option>
+                <option value="6개월 이상 중장기">6개월 이상 중장기</option>
+                <option value="일정 협의">일정 협의</option>
+              </select>
+            </label>
+
+            <label class="proposal-field">
+              <span>지역</span>
+              <input type="text" name="region" placeholder="예: 인천, 서울, 수도권, 전국" required />
+            </label>
+          </div>
+
+          <fieldset class="proposal-fieldset">
+            <legend>브랜딩 관련 필요 지원 (복수 선택)</legend>
+            <div class="proposal-checklist">
+              <label><input type="checkbox" name="serviceNeeds" value="브랜드 전략·포지셔닝 설계" />브랜드 전략·포지셔닝 설계</label>
+              <label><input type="checkbox" name="serviceNeeds" value="로고·BI 및 브랜드 가이드 디자인" />로고·BI 및 브랜드 가이드 디자인</label>
+              <label><input type="checkbox" name="serviceNeeds" value="브랜딩 콘텐츠 기획·제작(영상·블로그·SNS)" />브랜딩 콘텐츠 기획·제작(영상·블로그·SNS)</label>
+              <label><input type="checkbox" name="serviceNeeds" value="디지털 채널 운영·캠페인 실행" />디지털 채널 운영·캠페인 실행</label>
+              <label><input type="checkbox" name="serviceNeeds" value="PR·대외 커뮤니케이션" />PR·대외 커뮤니케이션</label>
+              <label><input type="checkbox" name="serviceNeeds" value="인테리어·공간 톤 제안" />인테리어·공간 톤 제안</label>
+              <label><input type="checkbox" name="serviceNeeds" value="사진·영상 촬영 및 후반 편집" />사진·영상 촬영 및 후반 편집</label>
+              <label><input type="checkbox" name="serviceNeeds" value="전시·행사·런칭 운영" />전시·행사·런칭 운영</label>
+            </div>
+          </fieldset>
+
+          <label class="proposal-field">
+            <span>특별 요청 사항</span>
+            <textarea
+              name="specialRequest"
+              rows="4"
+              maxlength="1200"
+              placeholder="현재 상황, 우선순위, 꼭 반영해야 할 요청 사항을 적어주세요."
+            ></textarea>
+          </label>
+
+          <div class="proposal-grid proposal-grid--contact">
+            <label class="proposal-field">
+              <span>담당자 성명</span>
+              <input type="text" name="contactName" required />
+            </label>
+            <label class="proposal-field">
+              <span>소속·직함</span>
+              <input type="text" name="contactOrg" required />
+            </label>
+            <label class="proposal-field">
+              <span>연락처</span>
+              <input type="tel" name="contactPhone" placeholder="예: 010-1234-5678" required />
+            </label>
+          </div>
+
+          <div class="proposal-actions">
+            <button class="btn btn--primary" type="submit">제안 요청서 보내기</button>
+            <p class="proposal-form-note">제출 후 요약이 생성되며, 전문 매니저에게 바로 문의할 수 있습니다.</p>
+          </div>
+          <p class="proposal-result" id="proposalResult" role="status" aria-live="polite"></p>
+          <div class="proposal-summary" id="proposalSummary" hidden>
+            <p class="proposal-summary__title">제안 요청 요약</p>
+            <pre class="proposal-summary__text" id="proposalSummaryText"></pre>
+            <p class="proposal-summary__guide">이 내용을 바탕으로 전문가에게 요청해보세요.</p>
+          </div>
+          <div class="proposal-quick-actions" id="proposalQuickActions" hidden>
+            <a id="proposalSmsLink" href="#" target="_self" rel="noopener noreferrer">전문 매니저에게 문의하기</a>
+            <a id="proposalCopyLink" href="#" target="_self" rel="noopener noreferrer">요약 다시 복사</a>
+          </div>
+        </form>
       </section>
 
       <section class="section contact" id="contact">

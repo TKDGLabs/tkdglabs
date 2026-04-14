@@ -184,7 +184,7 @@ a {
   transform: translateY(-1px);
 }
 
-.site-nav a.is-active {
+.site-nav a.is-active:not(.site-nav__cta) {
   color: #0a0e0e;
   background: rgba(252, 218, 35, 0.95);
   border-color: rgba(252, 218, 35, 0.95);
@@ -192,9 +192,26 @@ a {
 }
 
 .site-nav__cta {
-  border-color: rgba(252, 218, 35, 0.66);
-  color: #ffe780;
-  background: rgba(252, 218, 35, 0.08);
+  margin-left: 6px;
+  min-width: 66px;
+  padding: 0 16px;
+  border-color: rgba(252, 218, 35, 0.96);
+  color: #0a0e0e;
+  background: rgba(252, 218, 35, 0.96);
+  box-shadow: 0 8px 16px rgba(252, 218, 35, 0.3);
+}
+
+.site-nav__cta:hover {
+  color: #090d0d;
+  background: #ffe151;
+  border-color: #ffe151;
+  box-shadow: 0 10px 20px rgba(252, 218, 35, 0.34);
+}
+
+.site-nav__cta.is-active {
+  color: #0a0e0e;
+  background: #ffe151;
+  border-color: #ffe151;
 }
 
 .hero {
@@ -1393,6 +1410,209 @@ a {
   text-underline-offset: 2px;
 }
 
+.proposal {
+  border-top: 1px solid var(--line);
+}
+
+.proposal-intro {
+  margin: 0 0 20px;
+  color: #3f4444;
+  max-width: 72ch;
+}
+
+.proposal-form {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  display: grid;
+  gap: 18px;
+}
+
+.proposal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 20px;
+}
+
+.proposal-field {
+  display: grid;
+  gap: 6px;
+}
+
+.proposal-field > span {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #5f6464;
+  font-weight: 700;
+}
+
+.proposal-field input,
+.proposal-field select,
+.proposal-field textarea {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  border-radius: 0;
+  min-height: 40px;
+  padding: 8px 0;
+  color: #131818;
+  font-size: 0.98rem;
+  font-family: inherit;
+}
+
+.proposal-field textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.52;
+}
+
+.proposal-field input:focus,
+.proposal-field select:focus,
+.proposal-field textarea:focus {
+  outline: none;
+  border-bottom-color: #0a0e0e;
+}
+
+.proposal-fieldset {
+  margin: 0;
+  padding: 12px 0 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 12px;
+}
+
+.proposal-fieldset legend {
+  padding: 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #5f6464;
+  font-weight: 700;
+}
+
+.proposal-checklist {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 16px;
+}
+
+.proposal-checklist label {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px dashed rgba(10, 14, 14, 0.16);
+  font-size: 0.95rem;
+  color: #1f2424;
+  cursor: pointer;
+}
+
+.proposal-checklist input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #fcda23;
+}
+
+.proposal-grid--contact {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.proposal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+}
+
+.proposal-actions .btn:disabled {
+  opacity: 0.62;
+  cursor: wait;
+  transform: none;
+  box-shadow: none;
+}
+
+.proposal-form-note {
+  margin: 0;
+  font-size: 0.86rem;
+  color: #646969;
+}
+
+.proposal-result {
+  margin: 0;
+  min-height: 22px;
+  font-size: 0.92rem;
+  color: #596060;
+}
+
+.proposal-result.is-success {
+  color: #1f2424;
+  font-weight: 600;
+}
+
+.proposal-result.is-error {
+  color: #8a2b2b;
+  font-weight: 600;
+}
+
+.proposal-summary {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+  display: grid;
+  gap: 8px;
+}
+
+.proposal-summary__title {
+  margin: 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #5f6464;
+  font-weight: 700;
+}
+
+.proposal-summary__text {
+  margin: 0;
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.56;
+  color: #1c2121;
+  white-space: pre-wrap;
+}
+
+.proposal-summary__guide {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #1e2323;
+  font-weight: 700;
+}
+
+.proposal-quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  min-height: 28px;
+}
+
+.proposal-quick-actions a {
+  color: #1b2020;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(10, 14, 14, 0.24);
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.proposal-quick-actions a:hover {
+  border-color: rgba(10, 14, 14, 0.5);
+}
+
 .contact {
   padding-bottom: 96px;
 }
@@ -1575,6 +1795,19 @@ a {
 
   .faq-item dd {
     font-size: 0.95rem;
+  }
+
+  .proposal-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .proposal-checklist {
+    grid-template-columns: 1fr;
+  }
+
+  .proposal-checklist label {
+    min-height: 36px;
   }
 }
 

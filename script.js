@@ -171,3 +171,163 @@ if (teamCards && memberCards.length > 0) {
 
   syncMemberCardsState();
 }
+
+const proposalForm = document.getElementById("proposalForm");
+const proposalResult = document.getElementById("proposalResult");
+const proposalSummary = document.getElementById("proposalSummary");
+const proposalSummaryText = document.getElementById("proposalSummaryText");
+const proposalQuickActions = document.getElementById("proposalQuickActions");
+const proposalSmsLink = document.getElementById("proposalSmsLink");
+const proposalCopyLink = document.getElementById("proposalCopyLink");
+
+if (proposalForm && proposalResult) {
+  const businessPhoneRaw = "050714633664";
+  const businessPhoneDisplay = "0507-1463-3664";
+  const isMobileDevice = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  let latestProposalSummary = "";
+
+  const setProposalMessage = (message, type) => {
+    proposalResult.textContent = message;
+    proposalResult.classList.remove("is-success", "is-error");
+    if (type) proposalResult.classList.add(type);
+  };
+
+  const setQuickActionsVisible = (visible) => {
+    if (!proposalQuickActions) return;
+    proposalQuickActions.hidden = !visible;
+  };
+
+  const setProposalSummaryVisible = (visible) => {
+    if (!proposalSummary) return;
+    proposalSummary.hidden = !visible;
+  };
+
+  const setProposalSummaryText = (text) => {
+    if (!proposalSummaryText) return;
+    proposalSummaryText.textContent = text;
+    setProposalSummaryVisible(true);
+  };
+
+  const copyText = async (text) => {
+    if (!navigator.clipboard?.writeText) return false;
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  };
+
+  const createSmsHref = (text) => `sms:${businessPhoneRaw}?body=${encodeURIComponent(text)}`;
+
+  if (proposalCopyLink) {
+    proposalCopyLink.addEventListener("click", async (event) => {
+      event.preventDefault();
+      if (!latestProposalSummary) return;
+      const copied = await copyText(latestProposalSummary);
+      if (copied) {
+        setProposalMessage("요약을 다시 복사했습니다. 문의창에 붙여넣어 전송해주세요.", "is-success");
+      } else {
+        setProposalMessage("복사 권한이 차단되어 수동 복사가 필요합니다.", "is-error");
+      }
+    });
+  }
+
+  proposalForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!proposalForm.checkValidity()) {
+      proposalForm.reportValidity();
+      setProposalMessage("필수 항목을 모두 입력해주세요.", "is-error");
+      return;
+    }
+
+    setQuickActionsVisible(false);
+
+    const formData = new FormData(proposalForm);
+    const submitButton = proposalForm.querySelector('button[type="submit"]');
+    const serviceNeeds = Array.from(
+      proposalForm.querySelectorAll('input[name="serviceNeeds"]:checked')
+    ).map((input) => input.value);
+
+    if (serviceNeeds.length === 0) {
+      setProposalMessage("필요 지원 항목을 최소 1개 이상 선택해주세요.", "is-error");
+      return;
+    }
+
+    const payload = {
+      submittedAtKst: new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }),
+      clientType: formData.get("clientType") || "-",
+      serviceNeeds,
+      budget: formData.get("budget") || "-",
+      timeline: formData.get("timeline") || "-",
+      region: formData.get("region") || "-",
+      specialRequest: formData.get("specialRequest") || "없음",
+      contactName: formData.get("contactName") || "-",
+      contactOrg: formData.get("contactOrg") || "-",
+      contactPhone: formData.get("contactPhone") || "-",
+      source: window.location.href,
+    };
+
+    const requestSummary = [
+      "[TKDG Labs 제안 요청]",
+      "",
+      `의뢰 주체: ${payload.clientType}`,
+      `필요 지원: ${serviceNeeds.join(", ")}`,
+      `예산 범위: ${payload.budget}`,
+      `희망 기간: ${payload.timeline}`,
+      `지역: ${payload.region}`,
+      `특별 요청 사항: ${payload.specialRequest}`,
+      "",
+      `담당자 성명: ${payload.contactName}`,
+      `소속·직함: ${payload.contactOrg}`,
+      `연락처: ${payload.contactPhone}`,
+    ];
+    requestSummary.push(`접수 시각(KST): ${payload.submittedAtKst}`);
+    requestSummary.push(`유입 URL: ${payload.source}`);
+    const summaryText = requestSummary.join("\n");
+    latestProposalSummary = summaryText;
+    setProposalSummaryText(summaryText);
+
+    try {
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "접수 중...";
+      }
+
+      const copied = await copyText(summaryText);
+      const smsHref = createSmsHref(summaryText);
+      if (proposalSmsLink) {
+        proposalSmsLink.href = smsHref;
+      }
+      setQuickActionsVisible(true);
+
+      if (isMobileDevice) {
+        setProposalMessage(
+          "요약을 생성했습니다. 전문 매니저 문의 화면으로 이동합니다.",
+          "is-success"
+        );
+        window.location.href = smsHref;
+      } else if (copied) {
+        setProposalMessage(
+          `요약이 복사되었습니다. 아래 버튼을 눌러 전문 매니저(${businessPhoneDisplay})에게 문의해주세요.`,
+          "is-success"
+        );
+      } else {
+        setProposalMessage(
+          "복사 권한이 차단되어 있습니다. 아래 버튼으로 전문 매니저에게 바로 문의해주세요.",
+          "is-error"
+        );
+      }
+      proposalForm.reset();
+    } catch (_) {
+      setProposalMessage("접수 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.", "is-error");
+      setQuickActionsVisible(false);
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "제안 요청서 보내기";
+      }
+    }
+  });
+}
