@@ -9,11 +9,43 @@ if (heroVideo) {
   heroVideo.muted = true;
   heroVideo.defaultMuted = true;
 
+  const heroVideoCandidates = [
+    "./assets/office-hero-under25mb-1080-h264-noaudio.mp4",
+    "./assets/videos/office-hero-under25mb-1080-h264-noaudio.mp4",
+    "./office-hero-under25mb-1080-h264-noaudio.mp4",
+  ];
+  let heroVideoCandidateIndex = 0;
+  const heroVideoSource = heroVideo.querySelector("source");
+
+  const applyHeroVideoSource = (src) => {
+    if (heroVideoSource) {
+      heroVideoSource.src = src;
+      heroVideoSource.setAttribute("src", src);
+    } else {
+      heroVideo.src = src;
+    }
+    heroVideo.load();
+  };
+
   const tryPlayHeroVideo = () => {
     heroVideo.play().catch(() => {});
   };
 
+  const tryNextHeroVideoSource = () => {
+    heroVideoCandidateIndex += 1;
+    if (heroVideoCandidateIndex < heroVideoCandidates.length) {
+      applyHeroVideoSource(heroVideoCandidates[heroVideoCandidateIndex]);
+      tryPlayHeroVideo();
+    }
+  };
+
+  applyHeroVideoSource(heroVideoCandidates[heroVideoCandidateIndex]);
+
   heroVideo.addEventListener("loadeddata", tryPlayHeroVideo);
+  heroVideo.addEventListener("error", tryNextHeroVideoSource);
+  heroVideo.addEventListener("stalled", () => {
+    if (heroVideo.readyState < 2) tryNextHeroVideoSource();
+  });
   window.addEventListener("pageshow", tryPlayHeroVideo);
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") tryPlayHeroVideo();

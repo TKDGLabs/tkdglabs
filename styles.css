@@ -1386,6 +1386,13 @@ a {
   max-width: 74ch;
 }
 
+.faq-item dd a {
+  color: #1c2222;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .contact {
   padding-bottom: 96px;
 }
