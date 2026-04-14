@@ -3,6 +3,12 @@ const siteHeader = document.querySelector(".site-header");
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.querySelectorAll(".site-nav a");
 const pageSections = document.querySelectorAll("main section[id]");
+const heroVideo = document.getElementById("heroVideo");
+
+if (heroVideo && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  heroVideo.pause();
+  heroVideo.removeAttribute("autoplay");
+}
 
 const updateProgress = () => {
   const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -32,7 +38,7 @@ const setActiveNav = (id) => {
   });
 };
 
-setActiveNav("about");
+setActiveNav(window.location.hash ? window.location.hash.replace("#", "") : "");
 
 if (menuToggle) {
   menuToggle.addEventListener("click", () => {

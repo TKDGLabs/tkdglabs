@@ -72,7 +72,20 @@
 
     <main id="top">
       <section class="hero" id="hero" aria-label="메인 소개">
-        <div class="hero-photo" aria-hidden="true"></div>
+        <video
+          class="hero-photo"
+          id="heroVideo"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="./assets/img/hero-hq-building.jpg"
+          aria-hidden="true"
+        >
+          <source src="./assets/videos/office-hero-under25mb-1080-hevc-noaudio.mp4" type='video/mp4; codecs="hvc1"' />
+          <source src="./assets/videos/office-hero-under25mb-1080-h264-noaudio.mp4" type='video/mp4; codecs="avc1.640028"' />
+        </video>
         <div class="hero-layer" aria-hidden="true"></div>
         <div class="hero-inner">
           <p class="hero-kicker reveal">TKDG LABS CORPORATE LANDING</p>

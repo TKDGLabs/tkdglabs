@@ -215,13 +215,16 @@ a {
   position: absolute;
   inset: -6%;
   z-index: 0;
-  background-image: url("./assets/img/hero-hq-building.jpg");
-  background-size: cover;
-  background-position: center 58%;
+  width: calc(100% + 12%);
+  height: calc(100% + 12%);
+  object-fit: cover;
+  object-position: center 58%;
+  background: #0a0e0e;
   filter: grayscale(1) contrast(1.12) brightness(0.5);
   transform: scale(1.03);
   animation: heroDigitalZoom 22s ease-out forwards;
   will-change: transform;
+  pointer-events: none;
 }
 
 .hero-layer {
@@ -1551,7 +1554,7 @@ a {
   }
 
   .hero-photo {
-    background-position: 62% 58%;
+    object-position: 62% 58%;
     filter: grayscale(1) contrast(1.12) brightness(0.45);
   }
 
@@ -1602,7 +1605,7 @@ a {
   }
 
   .hero-photo {
-    background-position: 64% 56%;
+    object-position: 64% 56%;
   }
 
   .site-header {
