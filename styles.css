@@ -420,18 +420,8 @@ a {
   margin-bottom: 22px;
 }
 
-.business-meta {
-  margin: 0;
-  padding-top: 4px;
-  font-size: 0.9rem;
-  color: #5e6363;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
 .business-services {
-  margin: 14px 0 0;
+  margin: 4px 0 0;
   padding: 0;
   list-style: none;
   border-top: 1px solid var(--line);
@@ -442,16 +432,18 @@ a {
 
 .business-services li {
   display: grid;
-  grid-template-columns: 26px 1fr;
-  gap: 10px;
-  align-items: center;
-  padding: 14px 0;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+  gap: 12px;
+  align-items: start;
+  padding: 18px 12px;
   border-bottom: 1px solid var(--line);
 }
 
 .business-icon {
-  width: 22px;
-  height: 22px;
+  width: 40px;
+  height: 40px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -459,8 +451,8 @@ a {
 }
 
 .business-icon svg {
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 32px;
 }
 
 .business-icon path {
@@ -473,9 +465,10 @@ a {
 .business-services p {
   margin: 0;
   color: #171c1c;
-  font-size: 1rem;
-  line-height: 1.44;
+  font-size: 1.02rem;
+  line-height: 1.5;
   letter-spacing: -0.01em;
+  max-width: 29ch;
 }
 
 .units {
@@ -1584,13 +1577,13 @@ a {
     gap: 22px;
   }
 
-  .business-services p {
-    font-size: 0.96rem;
-  }
-
   .business-services {
     grid-template-columns: 1fr;
     column-gap: 0;
+  }
+
+  .business-services p {
+    font-size: 0.98rem;
   }
 
   .ir-principles li {
@@ -1659,14 +1652,19 @@ a {
     max-width: 29ch;
   }
 
-  .business-meta {
-    font-size: 0.82rem;
+  .business-services li {
+    gap: 10px;
+    padding: 14px 6px;
   }
 
-  .business-services li {
-    grid-template-columns: 22px 1fr;
-    gap: 8px;
-    padding: 12px 0;
+  .business-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .business-icon svg {
+    width: 27px;
+    height: 27px;
   }
 
   .ir-principles li {
