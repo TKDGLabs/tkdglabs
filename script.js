@@ -5,9 +5,20 @@ const navLinks = document.querySelectorAll(".site-nav a");
 const pageSections = document.querySelectorAll("main section[id]");
 const heroVideo = document.getElementById("heroVideo");
 
-if (heroVideo && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  heroVideo.pause();
-  heroVideo.removeAttribute("autoplay");
+if (heroVideo) {
+  heroVideo.muted = true;
+  heroVideo.defaultMuted = true;
+
+  const tryPlayHeroVideo = () => {
+    heroVideo.play().catch(() => {});
+  };
+
+  heroVideo.addEventListener("loadeddata", tryPlayHeroVideo);
+  window.addEventListener("pageshow", tryPlayHeroVideo);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") tryPlayHeroVideo();
+  });
+  tryPlayHeroVideo();
 }
 
 const updateProgress = () => {
