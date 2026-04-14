@@ -191,7 +191,7 @@ a {
   box-shadow: 0 8px 14px rgba(252, 218, 35, 0.24);
 }
 
-.site-nav__cta {
+.site-nav a.site-nav__cta {
   margin-left: 6px;
   min-width: 66px;
   padding: 0 16px;
@@ -201,14 +201,14 @@ a {
   box-shadow: 0 8px 16px rgba(252, 218, 35, 0.3);
 }
 
-.site-nav__cta:hover {
+.site-nav a.site-nav__cta:hover {
   color: #090d0d;
   background: #ffe151;
   border-color: #ffe151;
   box-shadow: 0 10px 20px rgba(252, 218, 35, 0.34);
 }
 
-.site-nav__cta.is-active {
+.site-nav a.site-nav__cta.is-active {
   color: #0a0e0e;
   background: #ffe151;
   border-color: #ffe151;
@@ -1851,6 +1851,12 @@ a {
 
   .site-nav a.is-active {
     background: linear-gradient(120deg, rgba(252, 218, 35, 0.86), rgba(230, 191, 0, 0.86));
+  }
+
+  .site-nav a.site-nav__cta,
+  .site-nav a.site-nav__cta.is-active,
+  .site-nav a.site-nav__cta:hover {
+    color: #0a0e0e;
   }
 
   .hero {
