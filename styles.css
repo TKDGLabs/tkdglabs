@@ -220,7 +220,7 @@ a {
   object-fit: cover;
   object-position: center 58%;
   background: #0a0e0e;
-  filter: grayscale(1) contrast(1.12) brightness(0.5);
+  filter: saturate(1.06) contrast(1.1) brightness(0.52);
   transform: scale(1.03);
   animation: heroDigitalZoom 22s ease-out forwards;
   will-change: transform;
@@ -1555,7 +1555,7 @@ a {
 
   .hero-photo {
     object-position: 62% 58%;
-    filter: grayscale(1) contrast(1.12) brightness(0.45);
+    filter: saturate(1.04) contrast(1.1) brightness(0.48);
   }
 
   .hero-title {
