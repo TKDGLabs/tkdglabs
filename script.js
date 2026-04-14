@@ -174,17 +174,10 @@ if (teamCards && memberCards.length > 0) {
 
 const proposalForm = document.getElementById("proposalForm");
 const proposalResult = document.getElementById("proposalResult");
-const proposalSummary = document.getElementById("proposalSummary");
-const proposalSummaryText = document.getElementById("proposalSummaryText");
-const proposalQuickActions = document.getElementById("proposalQuickActions");
-const proposalSmsLink = document.getElementById("proposalSmsLink");
-const proposalCopyLink = document.getElementById("proposalCopyLink");
 
 if (proposalForm && proposalResult) {
   const businessPhoneRaw = "050714633664";
   const businessPhoneDisplay = "0507-1463-3664";
-  const isMobileDevice = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  let latestProposalSummary = "";
 
   const setProposalMessage = (message, type) => {
     proposalResult.textContent = message;
@@ -192,46 +185,7 @@ if (proposalForm && proposalResult) {
     if (type) proposalResult.classList.add(type);
   };
 
-  const setQuickActionsVisible = (visible) => {
-    if (!proposalQuickActions) return;
-    proposalQuickActions.hidden = !visible;
-  };
-
-  const setProposalSummaryVisible = (visible) => {
-    if (!proposalSummary) return;
-    proposalSummary.hidden = !visible;
-  };
-
-  const setProposalSummaryText = (text) => {
-    if (!proposalSummaryText) return;
-    proposalSummaryText.textContent = text;
-    setProposalSummaryVisible(true);
-  };
-
-  const copyText = async (text) => {
-    if (!navigator.clipboard?.writeText) return false;
-    try {
-      await navigator.clipboard.writeText(text);
-      return true;
-    } catch (_) {
-      return false;
-    }
-  };
-
   const createSmsHref = (text) => `sms:${businessPhoneRaw}?body=${encodeURIComponent(text)}`;
-
-  if (proposalCopyLink) {
-    proposalCopyLink.addEventListener("click", async (event) => {
-      event.preventDefault();
-      if (!latestProposalSummary) return;
-      const copied = await copyText(latestProposalSummary);
-      if (copied) {
-        setProposalMessage("요약을 다시 복사했습니다. 문의창에 붙여넣어 전송해주세요.", "is-success");
-      } else {
-        setProposalMessage("복사 권한이 차단되어 수동 복사가 필요합니다.", "is-error");
-      }
-    });
-  }
 
   proposalForm.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -241,8 +195,6 @@ if (proposalForm && proposalResult) {
       setProposalMessage("필수 항목을 모두 입력해주세요.", "is-error");
       return;
     }
-
-    setQuickActionsVisible(false);
 
     const formData = new FormData(proposalForm);
     const submitButton = proposalForm.querySelector('button[type="submit"]');
@@ -286,8 +238,6 @@ if (proposalForm && proposalResult) {
     requestSummary.push(`접수 시각(KST): ${payload.submittedAtKst}`);
     requestSummary.push(`유입 URL: ${payload.source}`);
     const summaryText = requestSummary.join("\n");
-    latestProposalSummary = summaryText;
-    setProposalSummaryText(summaryText);
 
     try {
       if (submitButton) {
@@ -295,34 +245,12 @@ if (proposalForm && proposalResult) {
         submitButton.textContent = "접수 중...";
       }
 
-      const copied = await copyText(summaryText);
       const smsHref = createSmsHref(summaryText);
-      if (proposalSmsLink) {
-        proposalSmsLink.href = smsHref;
-      }
-      setQuickActionsVisible(true);
-
-      if (isMobileDevice) {
-        setProposalMessage(
-          "요약을 생성했습니다. 전문 매니저 문의 화면으로 이동합니다.",
-          "is-success"
-        );
-        window.location.href = smsHref;
-      } else if (copied) {
-        setProposalMessage(
-          `요약이 복사되었습니다. 아래 버튼을 눌러 전문 매니저(${businessPhoneDisplay})에게 문의해주세요.`,
-          "is-success"
-        );
-      } else {
-        setProposalMessage(
-          "복사 권한이 차단되어 있습니다. 아래 버튼으로 전문 매니저에게 바로 문의해주세요.",
-          "is-error"
-        );
-      }
+      setProposalMessage(`문자 메시지 창으로 이동합니다. (${businessPhoneDisplay})`, "is-success");
+      window.location.href = smsHref;
       proposalForm.reset();
     } catch (_) {
       setProposalMessage("접수 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.", "is-error");
-      setQuickActionsVisible(false);
     } finally {
       if (submitButton) {
         submitButton.disabled = false;
