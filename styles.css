@@ -1052,8 +1052,17 @@ a {
 
 .member-card__overlay-list span {
   font-size: 0.8rem;
-  line-height: 1.35;
+  line-height: 1.42;
   color: rgba(255, 255, 255, 0.9);
+  word-break: keep-all;
+}
+
+.member-line {
+  display: block;
+}
+
+.member-line + .member-line {
+  margin-top: 2px;
 }
 
 .member-card__meta {
