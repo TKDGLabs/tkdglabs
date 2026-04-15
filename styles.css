@@ -944,6 +944,15 @@ a {
   color: #333838;
 }
 
+.team-note--support {
+  margin-top: -8px;
+  margin-bottom: 18px;
+  color: #4d5252;
+  font-size: 0.94rem;
+  line-height: 1.62;
+  max-width: 900px;
+}
+
 .team-cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
