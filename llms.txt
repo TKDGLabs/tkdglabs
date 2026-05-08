@@ -1,6 +1,6 @@
 # TKDG Labs
 
-> TKDG Labs Co., Ltd. is a Korea-based brand launch and growth company integrating strategy, content marketing, and visual production.
+> TKDG Labs Co., Ltd. is an Incheon, Korea-based brand launch and content growth company integrating brand strategy, content channel operations, and visual production.
 
 ## Company
 - Legal name: 티케이디지랩스 주식회사 (TKDG Labs Co., Ltd.)
@@ -9,17 +9,25 @@
 - Location: 인천광역시 서구 파랑로 451, 10층 1010호
 
 ## Core Services
-- 브랜드 전략·광고 기획 및 제작
-- 디지털 채널 운영 및 정보 매개형 프로젝트 설계
-- PR·대외 커뮤니케이션 실행
-- 광고대행 및 광고매체 운영
-- 사진·영상 촬영 및 후반 편집
-- 전시·컨벤션·행사 기획 및 현장 운영
+- Brand Launch Strategy: brand naming, positioning, tone and manner, customer experience, launch direction
+- Content Growth System: YouTube, blog, SNS, content calendar, production workflow, performance reporting
+- Visual Production: profile, space, product, interview video, and content-ready visual assets
+
+## Representative Project Types
+- Brand launch and rebranding for professional service, clinic, corporate, and franchise clients
+- Monthly content channel operations through Turnkeyhaus by TKDG
+- Brand visual production through Pic_sta by TKDG
+- Internal content team workflow setup and production standardization
 
 ## Brand Units
-- TKDG Labs: Brand architecture and launch consulting
-- Turnkeyhaus by TKDG: Content marketing execution
-- Pic_sta by TKDG: Photography and visual production
+- TKDG Labs: Parent brand and strategy organization for brand launch systems
+- Turnkeyhaus by TKDG: YouTube, blog, SNS, and content channel operations
+- Pic_sta by TKDG: Space, profile, and brand visual production
+
+## Target Clients
+- Clinics and hospitals preparing brand or content operations
+- Law firms and professional service brands that need trust-building content
+- Companies and franchises preparing a brand launch or channel growth system
 
 ## Contact
 - Email: contact@tkdglabs.com
