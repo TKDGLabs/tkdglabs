@@ -10,9 +10,9 @@ if (heroVideo) {
   heroVideo.defaultMuted = true;
 
   const heroVideoCandidates = [
-    "./assets/office-hero-under25mb-1080-h264-noaudio.mp4",
     "./assets/videos/office-hero-under25mb-1080-h264-noaudio.mp4",
     "./office-hero-under25mb-1080-h264-noaudio.mp4",
+    "./assets/office-hero-under25mb-1080-h264-noaudio.mp4",
   ];
   let heroVideoCandidateIndex = 0;
   const heroVideoSource = heroVideo.querySelector("source");
@@ -209,7 +209,8 @@ if (proposalForm && proposalResult) {
 
     const payload = {
       submittedAtKst: new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }),
-      clientType: formData.get("clientType") || "-",
+      projectPurpose: formData.get("projectPurpose") || "-",
+      industry: formData.get("industry") || "-",
       serviceNeeds,
       budget: formData.get("budget") || "-",
       timeline: formData.get("timeline") || "-",
@@ -224,8 +225,9 @@ if (proposalForm && proposalResult) {
     const requestSummary = [
       "[TKDG Labs 제안 요청]",
       "",
-      `의뢰 주체: ${payload.clientType}`,
-      `필요 지원: ${serviceNeeds.join(", ")}`,
+      `의뢰 목적: ${payload.projectPurpose}`,
+      `주요 업종: ${payload.industry}`,
+      `필요 실행 범위: ${serviceNeeds.join(", ")}`,
       `예산 범위: ${payload.budget}`,
       `희망 기간: ${payload.timeline}`,
       `지역: ${payload.region}`,
@@ -246,7 +248,7 @@ if (proposalForm && proposalResult) {
       }
 
       const smsHref = createSmsHref(summaryText);
-      setProposalMessage(`문자 메시지 창으로 이동합니다. (${businessPhoneDisplay})`, "is-success");
+      setProposalMessage(`제안 요청 내용이 정리된 문자 작성 화면으로 이동합니다. (${businessPhoneDisplay})`, "is-success");
       window.location.href = smsHref;
       proposalForm.reset();
     } catch (_) {
