@@ -1,39 +1,38 @@
-# TKDG Labs
+# TKDG Labs (티케이디지랩스 주식회사)
 
-> TKDG Labs Co., Ltd. is an Incheon, Korea-based brand launch and content growth company integrating brand strategy, content channel operations, and visual production.
+> TKDG Labs is a content-focused ad-tech company in Bucheon, Korea. Through its YouTube channel operation service Turnkeyhaus, it runs channels for clinics, professional firms and companies, and is expanding into owned media, influencer and outsourcing matching, and rights management for overseas YouTube channels.
 
 ## Company
 - Legal name: 티케이디지랩스 주식회사 (TKDG Labs Co., Ltd.)
+- CEO: 채동우 (Chae Dongwoo)
 - Founded: 2025-02-17
+- Business registration number: 763-87-03415
+- Address: 경기도 부천시 소사구 양지로 205, 서영아너시티 2차 10층 1010호 (from 2026-10-30; previously Incheon)
 - Website: https://tkdglabs.com/
-- Location: 인천광역시 서구 파랑로 451, 10층 1010호
+- Contact: contact@tkdglabs.com, +82-507-1463-3664
 
-## Core Services
-- Brand Launch Strategy: brand naming, positioning, tone and manner, customer experience, launch direction
-- Content Growth System: YouTube, blog, SNS, content calendar, production workflow, performance reporting
-- Visual Production: profile, space, product, interview video, and content-ready visual assets
+## What we do
+1. Production (제작): Turnkeyhaus channel operation, in-house video team setup, video talent assessment. Clients: clinics, professional firms, companies. Active.
+2. Publishing (발행): BPR Magazine (community magazine on consumer, social and economic issues) and the interview series 어른을 만나다 (working title). Starting H1 2027.
+3. Collaboration (협업): outsourcing and freelancer matching (active), influencer marketing brokerage (H1 2027).
+4. Licensing (라이선싱): managing Korean rights for overseas YouTube channels, turning unauthorized reuploads into licensed use. Starting H1 2027.
+5. Data (데이터): performance analysis and SEO/GEO publishing for all businesses. Active.
 
-## Representative Project Types
-- Brand launch and rebranding for professional service, clinic, corporate, and franchise clients
-- Monthly content channel operations through Turnkeyhaus by TKDG
-- Brand visual production through Pic_sta by TKDG
-- Internal content team workflow setup and production standardization
+## Brands
+- Turnkeyhaus by TKDG: YouTube channel operation subscription for clinics, professionals and companies — https://turnkey.haus/
+- BPR Magazine (H1 2027)
+- 어른을 만나다 / the_eoreun (working title, H1 2027)
 
-## Brand Units
-- TKDG Labs: Parent brand and strategy organization for brand launch systems
-- Turnkeyhaus by TKDG: YouTube, blog, SNS, and content channel operations
-- Pic_sta by TKDG: Space, profile, and brand visual production
+## Roadmap
+- 2025-02: TKDG Labs founded
+- 2026: Turnkeyhaus channel operation, outsourcing matching, and performance analysis/SEO/GEO publishing in operation; office moves to Bucheon on 2026-10-30
+- H1 2027: BPR Magazine and 어른을 만나다 launch; influencer marketing brokerage and overseas channel rights management start
+- Next: connect production, publishing and performance data as a content-focused ad-tech company
 
-## Target Clients
-- Clinics and hospitals preparing brand or content operations
-- Law firms and professional service brands that need trust-building content
-- Companies and franchises preparing a brand launch or channel growth system
+## Partners
+- Contracts and rights are reviewed with a partner law firm, a licensed realtor, a franchise consultant and an administrative agent.
 
-## Contact
-- Email: contact@tkdglabs.com
-- Tel: +82-507-1463-3664
-- Sitemap: https://tkdglabs.com/sitemap.xml
-- FAQ section: https://tkdglabs.com/#faq
-
-## Recruiting
-- Saramin: https://www.saramin.co.kr/zf_user/company-info/view?csn=OUVvZlR6K1FRT0hJNDNhOGczOVNkZz09
+## Contact routes
+- YouTube channel operation (service details, pricing, case studies, team): https://turnkey.haus/
+- Partnerships, collaboration, magazine ads, interviews: contact@tkdglabs.com
+- Careers: https://www.saramin.co.kr/zf_user/company-info/view?csn=OUVvZlR6K1FRT0hJNDNhOGczOVNkZz09
