@@ -17,6 +17,8 @@
   if (jobOpen && jobClosed && isPast(jobOpen.dataset.until)) {
     jobOpen.hidden = true;
     jobClosed.hidden = false;
+    const footJobs = $("#footJobs");
+    if (footJobs && footJobs.dataset.closedHref) footJobs.href = footJobs.dataset.closedHref;
   }
 
   /* ---------- nav ---------- */
