@@ -114,6 +114,7 @@ b, strong { font-weight: 750; }
 .hero__shapes i:last-child { right: 32px; top: 40px; width: 22px; height: 44px; border-radius: 44px 0 0 44px; background: var(--key); }
 .hero__lead { grid-column: 3 / span 4; margin-top: clamp(28px, 3.4vw, 52px); font-size: clamp(17px, 1.3vw, 20px); line-height: 1.7; color: var(--gray); max-width: 31ch; }
 .hero__photo { grid-column: 5 / -1; margin-top: clamp(40px, 4.4vw, 64px); aspect-ratio: 2 / 1; overflow: hidden; border-radius: 6px; background: #15171a; }
+.hero__photo picture { display: block; width: 100%; height: 100%; }
 .hero__photo img { width: 100%; height: 118%; object-fit: cover; margin-top: -9%; }
 
 /* ---------- about ---------- */

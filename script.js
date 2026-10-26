@@ -102,7 +102,7 @@
 
   /* ---------- smooth scroll ---------- */
   let lenis = null;
-  if (!reduce && window.Lenis) {
+  if (!reduce && finePointer && window.Lenis) {
     lenis = new window.Lenis({ lerp: 0.1, wheelMultiplier: 1 });
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((t) => lenis.raf(t * 1000));
@@ -194,7 +194,9 @@
   if (reduce) return;
 
   /* ---------- hero: one entrance sequence ---------- */
-  const heroWords = $$(".hero__word");
+  const wide = window.matchMedia("(min-width: 901px)").matches;
+  // on phones the headline shows at once (it is the largest paint); the rest still eases in
+  const heroWords = wide ? $$(".hero__word") : [];
   const orb = $(".hero__orb");
   const shapes = $$(".hero__shapes i");
   const photo = $(".hero__photo");
@@ -218,7 +220,7 @@
   let started = false;
   const start = () => { if (!started) { started = true; intro(); } };
   (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(start);
-  setTimeout(start, 1500);
+  setTimeout(start, 900);
 
   /* photo drifts as the page scrolls */
   gsap.fromTo(photoImg, { yPercent: -6 }, {
@@ -244,7 +246,7 @@
         }),
     });
   };
-  const splitTargets = [".about__title", ".sec-head h2", ".quote blockquote", ".job h2", ".contact__title"];
+  const splitTargets = wide ? [".about__title", ".sec-head h2", ".job h2", ".contact__title"] : [];
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
     splitTargets.forEach((s) => $$(s).forEach(revealLines));
     ScrollTrigger.refresh();
